@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="88fb12c6-3bdb-4bd4-b9c4-d82e943d2d06" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1forvfK5NbJuPdBrUeurjL9S0aK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="RunManager" selected="Go Test.go test github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token">
+    <configuration name="TestGetNewAccessToken in github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bookstore-oauth-api" />
+      <working_directory value="$PROJECT_DIR$/src/domain/access_token" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^TestGetNewAccessToken$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="bookstore-oauth-api" />
+      <working_directory value="$PROJECT_DIR$/src/domain/access_token" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.go test github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token" />
+        <item itemvalue="Go Test.TestGetNewAccessToken in github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1750" height="277" key="GridCell.Tab.0.bottom" timestamp="1596896720231">
+      <screen x="0" y="23" width="1792" height="1020" />
+    </state>
+    <state width="1750" height="277" key="GridCell.Tab.0.bottom/0.23.1792.1020/0.-1057.1920.1057@0.23.1792.1020" timestamp="1596896720231" />
+    <state width="1750" height="277" key="GridCell.Tab.0.center" timestamp="1596896720230">
+      <screen x="0" y="23" width="1792" height="1020" />
+    </state>
+    <state width="1750" height="277" key="GridCell.Tab.0.center/0.23.1792.1020/0.-1057.1920.1057@0.23.1792.1020" timestamp="1596896720230" />
+    <state width="1750" height="277" key="GridCell.Tab.0.left" timestamp="1596896720230">
+      <screen x="0" y="23" width="1792" height="1020" />
+    </state>
+    <state width="1750" height="277" key="GridCell.Tab.0.left/0.23.1792.1020/0.-1057.1920.1057@0.23.1792.1020" timestamp="1596896720230" />
+    <state width="1750" height="277" key="GridCell.Tab.0.right" timestamp="1596896720230">
+      <screen x="0" y="23" width="1792" height="1020" />
+    </state>
+    <state width="1750" height="277" key="GridCell.Tab.0.right/0.23.1792.1020/0.-1057.1920.1057@0.23.1792.1020" timestamp="1596896720230" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/bookstore_oauth_api$go_test_github_com_carloshjoaquim_bookstore_oauth_api_src_domain_access_token.out" NAME="go test github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token Coverage Results" MODIFIED="1596896301946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/bookstore_oauth_api$TestGetNewAccessToken_in_github_com_carloshjoaquim_bookstore_oauth_api_src_domain_access_token.out" NAME="TestGetNewAccessToken in github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token Coverage Results" MODIFIED="1596896014249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
