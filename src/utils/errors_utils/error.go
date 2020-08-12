@@ -1,11 +1,11 @@
-package errors
+package errors_utils
 
 import "net/http"
 
 type RestErr struct {
 	Message string `json:"message"`
-	Status  int    `json:"status"`
-	Error   string `json:"errors"`
+	Status  int64  `json:"status"`
+	Error   string `json:"errors_utils"`
 }
 
 func NewBadRequestError(message string) *RestErr {
