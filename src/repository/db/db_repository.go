@@ -3,7 +3,7 @@ package db
 import (
 	"github.com/carloshjoaquim/bookstore-oauth-api/src/clients/cassandra"
 	"github.com/carloshjoaquim/bookstore-oauth-api/src/domain/access_token"
-	"github.com/carloshjoaquim/bookstore-users-api/utils/errors"
+	"github.com/carloshjoaquim/bookstore-oauth-api/src/utils/errors_utils"
 	"github.com/gocql/gocql"
 )
 
@@ -14,9 +14,9 @@ const (
 )
 
 type DbRepository interface {
-	GetById(string) (*access_token.AccessToken, *errors.RestErr)
-	Create(access_token.AccessToken) *errors.RestErr
-	UpdateExpirationTime(access_token.AccessToken) *errors.RestErr
+	GetById(string) (*access_token.AccessToken, *errors_utils.RestErr)
+	Create(access_token.AccessToken) *errors_utils.RestErr
+	UpdateExpirationTime(access_token.AccessToken) *errors_utils.RestErr
 }
 
 type dbRepository struct{}
@@ -25,7 +25,7 @@ func NewRepository() DbRepository {
 	return &dbRepository{}
 }
 
-func (r *dbRepository) GetById(id string) (*access_token.AccessToken, *errors.RestErr) {
+func (r *dbRepository) GetById(id string) (*access_token.AccessToken, *errors_utils.RestErr) {
 	var result access_token.AccessToken
 	if err := cassandra.GetSession().Query(queryGetAccessToken, id).Scan(
 		&result.AccessToken,
@@ -35,32 +35,32 @@ func (r *dbRepository) GetById(id string) (*access_token.AccessToken, *errors.Re
 	); err != nil {
 
 		if err == gocql.ErrNotFound {
-			return nil, errors.NewNotFoundError("no access token found")
+			return nil, errors_utils.NewNotFoundError("no access token found")
 		}
-		return nil, errors.NewInternalServerError(err.Error())
+		return nil, errors_utils.NewInternalServerError(err.Error())
 	}
 
 	return &result, nil
 }
 
-func (r *dbRepository) Create(at access_token.AccessToken) *errors.RestErr {
+func (r *dbRepository) Create(at access_token.AccessToken) *errors_utils.RestErr {
 	if err := cassandra.GetSession().Query(queryCreateAccessToken,
 		at.AccessToken,
 		at.UserId,
 		at.ClientId,
 		at.Expires,
 	).Exec(); err != nil {
-		return errors.NewInternalServerError(err.Error())
+		return errors_utils.NewInternalServerError(err.Error())
 	}
 	return nil
 }
 
-func (r *dbRepository) UpdateExpirationTime(at access_token.AccessToken) *errors.RestErr {
+func (r *dbRepository) UpdateExpirationTime(at access_token.AccessToken) *errors_utils.RestErr {
 	if err := cassandra.GetSession().Query(queryUpdateExpires,
 		at.Expires,
 		at.AccessToken,
 	).Exec(); err != nil {
-		return errors.NewInternalServerError(err.Error())
+		return errors_utils.NewInternalServerError(err.Error())
 	}
 	return nil
 }

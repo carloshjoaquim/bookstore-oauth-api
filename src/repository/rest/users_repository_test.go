@@ -25,7 +25,6 @@ func TestLoginUserTimeoutFromApi(t *testing.T) {
 	defer httpmock.DeactivateAndReset()
 	repository := usersRepository{}
 
-	// mock to add a new article
 	httpmock.RegisterResponder("POST", "https://api.bookstore.com/users/login",
 		httpmock.NewErrorResponder(errors.New("timeout")))
 
@@ -125,4 +124,7 @@ func TestLoginUserNoError(t *testing.T) {
 
 	assert.Nil(t, err)
 	assert.NotNil(t, user)
+	assert.EqualValues(t, "Carlos", user.FirstName)
+	assert.EqualValues(t, "Joaquim", user.LastName)
+	assert.EqualValues(t, "email@gmail.com", user.Email)
 }

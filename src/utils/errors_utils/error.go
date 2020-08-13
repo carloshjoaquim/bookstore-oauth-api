@@ -4,7 +4,7 @@ import "net/http"
 
 type RestErr struct {
 	Message string `json:"message"`
-	Status  int64  `json:"status"`
+	Status  int  `json:"status"`
 	Error   string `json:"errors_utils"`
 }
 
