@@ -11,7 +11,7 @@ import (
 
 var (
 	usersRestClient = resty.New().
-		SetHostURL("https://api.bookstore.com").
+		SetHostURL("http://localhost:8081").
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "application/json").
 		SetTimeout(1000 * time.Millisecond)
@@ -26,7 +26,7 @@ type usersRepository struct {}
 func GetRestClient() *http.Client {
 	return usersRestClient.GetClient()
 }
-func NewRepository() RestUsersRepository {
+func NewUsersRepository() RestUsersRepository {
 	return &usersRepository{}
 }
 
