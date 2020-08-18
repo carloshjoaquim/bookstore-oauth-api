@@ -2,7 +2,7 @@ package access_token
 
 import (
 	"fmt"
-	"github.com/carloshjoaquim/bookstore-oauth-api/src/utils/crypto_utils"
+	"github.com/carloshjoaquim/bookstore-utils-go/crypto_utils"
 	"github.com/carloshjoaquim/bookstore-utils-go/rest_errors"
 	"strings"
 	"time"
