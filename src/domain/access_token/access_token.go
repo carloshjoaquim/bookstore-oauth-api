@@ -3,7 +3,7 @@ package access_token
 import (
 	"fmt"
 	"github.com/carloshjoaquim/bookstore-oauth-api/src/utils/crypto_utils"
-	"github.com/carloshjoaquim/bookstore-oauth-api/src/utils/errors_utils"
+	"github.com/carloshjoaquim/bookstore-utils-go/rest_errors"
 	"strings"
 	"time"
 )
@@ -35,37 +35,37 @@ type AccessToken struct {
 }
 
 
-func (at *AccessTokenRequest) Validate() *errors_utils.RestErr {
+func (at *AccessTokenRequest) Validate() *rest_errors.RestErr {
 	switch at.GrantType {
 	case grantTypePassword: {
 		if at.Password == "" || at.Username == "" {
-			return errors_utils.NewBadRequestError("username or password cannot be empty for grant_type = password")
+			return rest_errors.NewBadRequestError("username or password cannot be empty for grant_type = password")
 		}
 	}
 	case grantTypeClientCredentials: {
 		if at.ClientId == "" || at.ClientSecret == "" {
-			return errors_utils.NewBadRequestError("client_id or client_secret cannot be empty for grant_type = client_credentials")
+			return rest_errors.NewBadRequestError("client_id or client_secret cannot be empty for grant_type = client_credentials")
 		}
 	}
 	default:
-		return errors_utils.NewBadRequestError("invalid grant_type.")
+		return rest_errors.NewBadRequestError("invalid grant_type.")
 	}
 	return nil
 }
 
-func (at *AccessToken) Validate() *errors_utils.RestErr {
+func (at *AccessToken) Validate() *rest_errors.RestErr {
 	at.AccessToken = strings.TrimSpace(at.AccessToken)
 	if len(at.AccessToken) == 0 {
-		return errors_utils.NewBadRequestError("invalid access token id")
+		return rest_errors.NewBadRequestError("invalid access token id")
 	}
 	if at.UserId <= 0 {
-		return errors_utils.NewBadRequestError("invalid user_id")
+		return rest_errors.NewBadRequestError("invalid user_id")
 	}
 	if at.ClientId <= 0 {
-		return errors_utils.NewBadRequestError("invalid client_id")
+		return rest_errors.NewBadRequestError("invalid client_id")
 	}
 	if at.Expires <= 0 {
-		return errors_utils.NewBadRequestError("invalid expires")
+		return rest_errors.NewBadRequestError("invalid expires")
 	}
 	return nil
 }

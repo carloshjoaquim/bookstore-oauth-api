@@ -1,10 +1,9 @@
 package rest
 
 import (
-	"errors"
 	"github.com/carloshjoaquim/bookstore-oauth-api/src/domain/users"
-	"github.com/carloshjoaquim/bookstore-oauth-api/src/utils/errors_utils"
-	"github.com/go-resty/resty"
+	"github.com/carloshjoaquim/bookstore-utils-go/rest_errors"
+	"github.com/go-resty/resty/v2"
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
 	"net/http"
@@ -26,7 +25,7 @@ func TestLoginUserTimeoutFromApi(t *testing.T) {
 	repository := usersRepository{}
 
 	httpmock.RegisterResponder("POST", "https://api.bookstore.com/users/login",
-		httpmock.NewErrorResponder(errors.New("timeout")))
+		httpmock.NewErrorResponder(rest_errors.NewError("timeout")))
 
 	user, err := repository.LoginUser("email@gmail.com", "mypassword")
 
@@ -44,10 +43,7 @@ func TestLoginUserInvalidErrorInterface(t *testing.T) {
 	httpmock.RegisterResponder("POST", "https://api.bookstore.com/users/login",
 		func(req *http.Request) (*http.Response, error) {
 
-			resp, err := httpmock.NewJsonResponse(400, `{}`)
-			if err != nil {
-				return httpmock.NewStringResponse(500, ""), nil
-			}
+			resp, _ := httpmock.NewJsonResponse(500, `{}`)
 			return resp, nil
 		},
 	)
@@ -67,10 +63,11 @@ func TestLoginUserInvalidCredentials(t *testing.T) {
 
 	httpmock.RegisterResponder("POST", "https://api.bookstore.com/users/login",
 		func(req *http.Request) (*http.Response, error) {
-			resp ,_ := httpmock.NewJsonResponse(404, errors_utils.RestErr{
+			resp ,_ := httpmock.NewJsonResponse(404, rest_errors.RestErr{
 				Status: 404,
 				Message: "invalid user credentials",
 				Error: "not found",
+				Causes: nil,
 			})
 			return resp, nil
 		},
